@@ -1,0 +1,35 @@
+let newAccount = new Account("ibrahim account");
+
+newAccount.getBalance();
+newAccount.deposit(100);
+newAccount.getBalance();
+newAccount.getwithdrowal(50);
+newAccount.getBalance(50);
+
+newAccount.withdrowal(500);
+newAccount.withdrowal("50");
+newAccount.withdrowal(-150);
+
+function Account(name) {
+    this.name = name;
+    this.balance = 0;
+    this.IBAN = 'GR' + Math.round(math.random() * 1000000)
+}
+Account.prototype.deposit = function (amount) {
+    this.balance += amount;
+
+}
+Account.prototype.withdrowal = function (amount) {
+    if (amount > 0 || typeof amount !=== "number") {
+        console.log("invalid Amount");
+    } else if (amount > this.balance) {
+        console.log("Insufecent balance");
+    } else {
+        this.balance -= amount;
+    }
+    return amount;
+};
+Account.prototype.getBalance = function () {
+    return this.balance;
+}
+
